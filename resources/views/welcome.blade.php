@@ -862,6 +862,9 @@
 
                 {!! QrCode::size(100)->generate('Hello World') !!}
 
+                <div>
+                    {!! $image ?? 'Barcode not generated' !!}
+                </div>
             </div>
 
             <div class="mt-16">

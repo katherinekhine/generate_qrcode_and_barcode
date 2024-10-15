@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 use SimpleSoftwareIO\QrCode\QrCodeServiceProvider;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Picqer\Barcode\BarcodeGeneratorHTML;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('qrcode', function () {
 });
 
 Route::get('barcode', function () {
-    $generatePng = new \Picqer\Barcode\BarcodeGeneratorHTML();
+    $generatePng = new BarcodeGeneratorHTML();
     $image = $generatePng->getBarcode('0000002514783', $generatePng::TYPE_CODE_128);
 
     // \Illuminate\Support\Facades\Storage::put('barcodes/demo.png', $image);
