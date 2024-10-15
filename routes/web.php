@@ -25,3 +25,14 @@ Route::get('qrcode', function () {
     // return QrCode::size(300)->generate('A Basic example of QR code!');
     return QrCode::SMS('111-222-3333', 'Hello World!');
 });
+
+Route::get('barcode', function () {
+    $generatePng = new \Picqer\Barcode\BarcodeGeneratorHTML();
+    $image = $generatePng->getBarcode('0000002514783', $generatePng::TYPE_CODE_128);
+
+    // \Illuminate\Support\Facades\Storage::put('barcodes/demo.png', $image);
+
+    // return response($image)->header('Content-Type', 'image/png');
+
+    return view('welcome', compact('image'));
+});
